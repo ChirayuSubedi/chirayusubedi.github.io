@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en-US" xmlns:fb="http://ogp.me/ns/fb#">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <title>C H I R A Y U</title>
+    
+</head>
+<body class="home blog hfeed">
+  
+    <div id="page" class="site"> 
+            
+         <div id="home" class="header" style="background-image: url(images/oye1.jpeg);" style="height: 610px; width: 100%;">
+            <div class="container">
+                <div class="top-header">
+                    <div class="top-nav">
+                        <div class="navigation">
+                            <div class="logo">
+                                <h1><a href="index.php">
+                                    <span class="logo-word">CH</span>IRAYU</a>
+                                </h1>
+                            </div>
+                            <div class="menu-bar">    
+                                    <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+                            </div>
+                            <div class="ham">
+                               
+                                <div id="myNav" class="overlay">
+                                      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                                      <div class="overlay-content">
+                                        <a href="index.html">Home</a>
+                                        <a href="about.html">About</a>
+                                        <a href="cv.html">CV</a>
+                                        <a href="social.html">Social</a>
+                                        <a href="models_gp.html">model.gp</a>
+                                        <a href="contact.html">Contact</a>
+                                      </div>
+                                </div>
+                                
+                            </div>
+                            
+                                                    
+                         
+                        </div>
+                    </div>
+
+        <section class="intro">
+            <div class="banner"> 
+                
+                <h2>I'M Chirayu</h2> 
+                <span>PROGRAMMER / WEB DEVELOPER</span>
+                <div class="callbacks_container">
+                    
+                    <div class="typewriter" id="myTypewriter">
+                          <h1>A DREAMER WITH NO DREAMS ON THE POCKET.</h1>
+                    </div>
+                    
+                </div>
+                    <ul class="top-links">
+                       
+                        <li><a href="https://www.facebook.com/"><i class="fa fa-facebook"></i></a>
+                        </li>
+                        <li><a href="https://twitter.com/"><i class="fa fa-twitter"></i></a>
+                        </li>
+                        <li><a href="https://www.linkedin.com/"><i class="fa fa-linkedin"></i></a>
+                        </li>
+                        <li><a href="https://plus.google.com/"><i class="fa fa-google-plus"></i></a>
+                         </li>
+                     </ul>
+            </div>
+        
+        </section>
+
+                   </div>
+          </div>
+        </div>
+    
+
+    
+        <section class="footer">
+            <div class="footer-main">
+               <div class="container">
+                <h3 class="footer-content">2018@copyright</h3>
+                <h5>Powered by Chirayu </h5>
+               </div>  
+                
+            </div>
+        </section>
+
+
+    </div>  
+   
+
+
+        <script>
+            function openNav() {
+                document.getElementById("myNav").style.width = "100%";
+            }
+
+            function closeNav() {
+                document.getElementById("myNav").style.width = "0%";
+            }
+        </script>
+        <script>
+            var messages=["SILENCE IS GOLDEN","LIFE IS ALL ABOUT CODING","AND FINALLY I M CODER"];
+                var rank=0;
+
+                // Code for Chrome, Safari and Opera
+                document.getElementById("myTypewriter").addEventListener("webkitAnimationEnd", changeTxt);
+
+                // Standard syntax
+                document.getElementById("myTypewriter").addEventListener("animationend", changeTxt);
+
+                function changeTxt(e){
+                  _h1 = this.getElementsByTagName("h1")[0];
+                  _h1.style.webkitAnimation = 'none'; // set element animation to none
+                   setTimeout(function() { // you surely want a delay before the next message appears
+                      _h1.innerHTML=messages[rank];
+                      var speed =3.5*messages[rank].length/20; // adjust the speed (3.5 is the original speed, 20 is the original string length
+                      _h1.style.webkitAnimation = 'typing '+speed+'s steps(40, end), blink-caret .75s step-end infinite'; //  switch to the original set of animation      
+                      (rank===messages.length-1)?rank=0:rank++; // if you have displayed the last message from the array, go back to the first one, else go to next message
+                    }, 1000);
+                }
+            </script>
+
+          
+      </body>
+      </html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<title>chirayu</title>
+</head>
+<body id="contact-form">
+
+	<div class="navigation" style="background: url(images/zxc2.jpeg); ">
+			<div class="container">
+                            <div class="logo">
+                                <h1><a href="index.php">
+                                    <span class="logo-word">C</span>HIRAYU</a>
+                                </h1>
+                            </div>
+                            <div class="menu-bar">    
+                                    <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+                            </div>
+                            <div class="ham">
+                               
+                                <div id="myNav" class="overlay">
+                                      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                                      <div class="overlay-content">
+                                        <a href="index.html">Home</a>
+                                        <a href="about.html">About</a>
+                                        <a href="cv.html">CV</a>
+                                        <a href="social.html">Social</a>
+                                        <a href="models_gp.html">model.gp</a>
+                                        <a href="contact.html">Contact</a>
+                                      </div>
+                                </div>
+                                
+                            </div>
+                            
+                                                    
+        </div>                 
+    </div>
+
+   <section id="contact-main">
+    
+    <h1 class="contact-head">Simple Contact Form</h1>
+
+    <!-- Contact Form -->
+
+    <form action="#" method="post">
+
+        <fieldset class="contact-form">
+
+            <input type="text" name="name" placeholder="Name" required>
+            <input type="email" name="email" placeholder="Email address" required>
+            <input type="text" name="subject" placeholder="Subject" required>
+            <textarea name="message" placeholder="Add your message here" required></textarea>
+            <input type="submit" id="submit" value="Submit" >
+          
+        </fieldset>
+
+    </section>
+
+</body>
+
+    
+
+     <section class="footer">
+            <div class="footer-main">
+               <div class="container">
+                <h3 class="footer-content">2018@copyright</h3>
+                <h5>Powered by Chirayu </h5>
+               </div>  
+                
+            </div>
+        </section>
+
+    <script>
+        function openNav() {
+            document.getElementById("myNav").style.width = "100%";
+        }
+
+        function closeNav() {
+            document.getElementById("myNav").style.width = "0%";
+        }
+    </script>
+    <script>
+        function captchaCode() {
+  var Numb1, Numb2, Numb3, Numb4, Code;     
+  Numb1 = (Math.ceil(Math.random() * 10)-1).toString();
+  Numb2 = (Math.ceil(Math.random() * 10)-1).toString();
+  Numb3 = (Math.ceil(Math.random() * 10)-1).toString();
+  Numb4 = (Math.ceil(Math.random() * 10)-1).toString();
+  
+  Code = Numb1 + Numb2 + Numb3 + Numb4;
+  $("#captcha span").remove();
+  $("#captcha input").remove();
+  $("#captcha").append("<span id='code'>" + Code + "</span><input type='button' onclick='captchaCode();'>");
+}
+
+$(function() {
+  captchaCode();
+  
+  $('#contactForm').submit(function(){
+    var captchaVal = $("#code").text();
+    var captchaCode = $(".captcha").val();
+    if (captchaVal == captchaCode) {
+      $(".captcha").css({
+        "color" : "#609D29"
+      });
+    }
+    else {
+      $(".captcha").css({
+        "color" : "#CE3B46"
+      });
+    }
+    
+    var emailFilter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,10})+$/;   
+    var emailText = $(".email").val();
+    if (emailFilter.test(emailText)) {
+      $(".email").css({
+        "color" : "#609D29"
+      });
+    }
+    else {
+      $(".email").css({
+        "color" : "#CE3B46"
+      });
+    }
+    
+    var nameFilter = /^([a-zA-Z \t]{3,15})+$/;
+    var nameText = $(".name").val();
+    if (nameFilter.test(nameText)) {
+      $(".name").css({
+        "color" : "#609D29"
+      });
+    }
+    else {
+      $(".name").css({
+        "color" : "#CE3B46"
+      });
+    }
+    
+    var messageText = $(".message").val().length;
+    if (messageText > 50) {
+      $(".message").css({
+        "color" : "#609D29"
+      });
+    }
+    else {
+      $(".message").css({
+        "color" : "#CE3B46"
+      });
+    }
+    
+    if ((captchaVal !== captchaCode) || (!emailFilter.test(emailText)) || (!nameFilter.test(nameText)) || (messageText < 50)) {
+      return false;
+    }
+    if ((captchaVal == captchaCode) && (emailFilter.test(emailText)) && (nameFilter.test(nameText)) && (messageText > 50)) {
+      $("#contactForm").css("display", "none");
+      $("#form").append("<h2>Message sent!</h2>");
+      return false;
+    }
+  });       
+});
+    </script>
+</html>
